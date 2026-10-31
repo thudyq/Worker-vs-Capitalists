@@ -1,0 +1,66 @@
+:root { font-family: system-ui, "Microsoft YaHei", sans-serif; color: #26332c; background: #f4f3ed; line-height: 1.6; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1080px; margin: auto; padding: 32px 24px; }
+header, .status { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+header { margin-bottom: 28px; }
+h1 { margin: 0; font-size: 30px; }
+h2 { margin: 0 0 12px; font-size: 19px; }
+h3 { font-size: 15px; margin-bottom: 8px; }
+p { margin: 8px 0 16px; }
+.eyebrow { color: #6b786e; font-size: 12px; letter-spacing: 1.5px; margin: 0 0 4px; }
+.panel { background: #fff; border: 1px solid #dce0d7; border-radius: 10px; padding: 24px; margin-bottom: 18px; }
+.choices, form { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; }
+.choices { margin-top: 28px; }
+.choices button { padding: 20px 32px; text-align: left; }
+small { display: block; font-size: 12px; font-weight: 400; margin-top: 4px; opacity: .85; }
+button, input, select { font: inherit; border-radius: 6px; }
+button { background: #315b45; border: 1px solid #315b45; color: #fff; cursor: pointer; padding: 10px 20px; font-weight: 600; }
+button:hover { background: #244633; }
+.secondary { color: #315b45; background: transparent; }
+.secondary:hover { background: #e7ebe1; }
+label { display: grid; gap: 5px; font-size: 14px; }
+input, select { width: 100%; padding: 10px 12px; border: 1px solid #b8c1b5; color: inherit; background: #fff; }
+input { max-width: 180px; }
+:focus-visible { outline: 3px solid #c49b42; outline-offset: 3px; }
+.status { margin-bottom: 18px; flex-wrap: wrap; }
+.status strong { font-size: 20px; }
+#steps { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+#steps span { padding: 5px 14px; border-radius: 5px; font-size: 13px; color: #6b786e; }
+#steps .current { background: #dfe8db; color: #234e35; font-weight: 700; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; white-space: nowrap; font-size: 14px; text-align: left; }
+th, td { padding: 12px 10px; border-bottom: 1px solid #ebeee7; }
+thead th { color: #6b786e; font-size: 12px; font-weight: 500; }
+tbody th { font-weight: 500; }
+tbody tr:last-child > * { border-bottom: 0; }
+.you { background: #f0f5e9; }
+summary { cursor: pointer; font-weight: 600; }
+details[open] > summary { margin-bottom: 12px; }
+.rules { font-size: 13px; color: #6b786e; padding: 8px 0; }
+ul, ol { padding-left: 22px; }
+#error { color: #a73727; font-size: 14px; margin-bottom: 0; }
+dialog { width: min(560px, calc(100% - 28px)); max-height: 85vh; overflow: auto; padding: 28px; border: 1px solid #dce0d7; border-radius: 12px; color: inherit; box-shadow: 0 20px 70px #15271e33; }
+dialog::backdrop { background: #172b225e; }
+dialog[open] { animation: appear .18s ease-out; }
+dialog h2 { font-size: 23px; }
+dialog form { margin-top: 24px; }
+dialog button { width: 100%; }
+dialog .table-wrap { margin: 16px 0; }
+.notice-total { background: #f0f5e9; padding: 12px 14px; border-radius: 6px; font-weight: 600; }
+.notice-warning { color: #a73727; font-weight: 600; }
+@keyframes appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { dialog[open] { animation: none; } }
+[hidden] { display: none !important; }
+@media (max-width: 600px) {
+    main { padding: 20px 14px; }
+    .panel { padding: 18px 14px; }
+    h1 { font-size: 25px; }
+    header { align-items: start; }
+    .secondary { font-size: 12px; padding: 8px 12px; }
+    .choices { flex-direction: column; align-items: stretch; }
+    form label, form button { width: 100%; }
+    input { max-width: none; }
+    #steps { gap: 3px; }
+    #steps span { padding: 4px 9px; }
+}

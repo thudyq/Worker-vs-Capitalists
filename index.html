@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工人与资本家</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div><p class="eyebrow">Workers & Capitalists</p><h1>工人与资本家</h1></div>
+            <button id="restart" class="secondary" hidden>重新开始</button>
+        </header>
+        <section id="start" class="panel">
+            <h2>选择你的身份</h2>
+            <p>3名资本家，10名工人，5轮生存与竞争。</p>
+            <div class="choices">
+                <button data-role="capitalist">成为资本家 <small>初始资产 500 元</small></button>
+                <button data-role="worker">成为工人 <small>初始资产 0 元</small></button>
+            </div>
+        </section>
+        <div id="game" hidden>
+            <div class="status"><strong id="round"></strong><span id="player"></span></div>
+            <nav id="steps" aria-label="本轮进度"></nav>
+            <section class="panel" aria-live="polite">
+                <h2 id="phase-title"></h2><p id="hint"></p>
+                <form id="action"></form><p id="error" role="alert"></p>
+            </section>
+            <section class="panel">
+                <h2>企业</h2>
+                <div class="table-wrap"><table><thead><tr><th>资本家</th><th>资产</th><th>招聘 / 工资上限</th><th>录用</th><th>产量</th><th>售价</th><th>销量</th></tr></thead><tbody id="companies"></tbody></table></div>
+            </section>
+            <details class="panel" open>
+                <summary>工人</summary>
+                <div class="table-wrap"><table><thead><tr><th>工人</th><th>资产</th><th>雇主</th><th>报价 / 工资</th><th>购买</th><th>状态</th></tr></thead><tbody id="workers"></tbody></table></div>
+            </details>
+            <section id="results" class="panel" hidden></section>
+        </div>
+        <details class="rules">
+            <summary>规则</summary>
+            <p>招聘需预留工资与40元固定开支。工人按个人报价由低到高录用，同价随机，落选不可重投。招聘后立即生产、发工资，每人生产30件。</p>
+            <p>工人每轮支付25元生活费，必须购买1件买得起的产品，否则淘汰。企业销量＝产量×购买人数÷轮初工人数，四舍五入，库存不保留。</p>
+            <p>轮末资本家资产低于40元则降为工人，保留资产。5轮后按最终身份分别排名；资本家全部降级或工人全部淘汰则提前结束。同资产并列。</p>
+        </details>
+    </main>
+    <dialog id="notice" aria-labelledby="notice-title">
+        <h2 id="notice-title" tabindex="-1" autofocus></h2>
+        <div id="notice-content"></div>
+        <form method="dialog"><button id="notice-close">继续</button></form>
+    </dialog>
+    <script src="script.js"></script>
+</body>
+</html>
